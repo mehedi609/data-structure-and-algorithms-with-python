@@ -182,10 +182,33 @@ class SingleLinkedList:
         self.head = prev_node
 
     def bubble_sort_exdata(self):
-        pass
+        end = None
+        while end is not self.head.next:
+            cur_node = self.head
+            while end is not cur_node.next:
+                next_node = cur_node.next
+                if cur_node.data > next_node.data:
+                    cur_node.data, next_node.data = next_node.data, cur_node.data
+                cur_node = next_node
+            end = cur_node
 
     def bubble_sort_exlinks(self):
-        pass
+        end = None
+        while end is not self.head.next:
+            cur_node = prev_node = self.head
+            while end is not cur_node.next:
+                next_node = cur_node.next
+                if cur_node.data > next_node.data:
+                    cur_node.next = next_node.next
+                    next_node.next = cur_node
+                    if cur_node is self.head:
+                        self.head = next_node
+                    else:
+                        prev_node.next = next_node
+                    cur_node, next_node = next_node, cur_node
+                    prev_node = cur_node
+                    cur_node = cur_node.next
+            end = cur_node
 
     def has_cycle(self):
         pass
