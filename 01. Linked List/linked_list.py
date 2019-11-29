@@ -44,13 +44,29 @@ class SingleLinkedList:
             print(f"{d} not found in the list")
 
     def insert_in_beginning(self, d):
-        pass
+        temp_node = Node(d, self.head)
+        self.head = temp_node
 
     def insert_at_end(self, d):
-        pass
+        temp_node = Node(d)
+
+        if self.head is None:
+            self.head = temp_node
+            return
+        else:
+            node = self.head
+            while node.next is not None:
+                node = node.next
+            node.next = temp_node
 
     def create_list(self):
-        pass
+        n = int(input('Enter the number of nodes: '))
+        if n == 0:
+            return
+        for _ in range(n):
+            d = int(input('Enter the element: '))
+            self.insert_at_end(d)
+        print()
 
     def insert_after(self, data, existing_value):
         pass
