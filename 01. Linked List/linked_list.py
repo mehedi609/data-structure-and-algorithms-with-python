@@ -69,13 +69,64 @@ class SingleLinkedList:
         print()
 
     def insert_after(self, data, existing_value):
-        pass
+        node = self.head
+
+        while node is not None:
+            if node.data == existing_value:
+                break
+            node = node.next
+        else:
+            print(f"{existing_value} not present in the list")
+            return
+
+        temp_node = Node(data, node.next)
+        node.next = temp_node
 
     def insert_before(self, data, existing_value):
-        pass
+        # if list is empty
+        if self.head is None:
+            print('List is empty')
+            return
+
+            # if data is in first node and new node is to be inserted before the first node
+        node = self.head
+        if existing_value == node.data:
+            temp_node = Node(data, node)
+            self.head = temp_node
+            return
+
+        while node.next is not None:
+            if node.next.data == existing_value:
+                break
+            node = node.next
+        else:
+            print(f"{existing_value} not present in the list")
+            return
+
+        temp_node = Node(data, node.next)
+        node.next = temp_node
 
     def insert_at_position(self, data, position):
-        pass
+        if self.head is None:
+            print('List is empty')
+            return
+
+        node = self.head
+        if position == 1:
+            temp_node = Node(data, node.next)
+            node.next = temp_node
+            return
+
+        i = 1
+        while i < position - 1 and node is not None:
+            node = node.next
+            i += 1
+
+        if node is None:
+            print(f'You can insert only upto position {i}')
+        else:
+            temp_node = Node(data, node)
+            node.next = temp_node
 
     def delete_node(self, x):
         pass
