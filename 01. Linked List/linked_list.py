@@ -129,13 +129,46 @@ class SingleLinkedList:
             node.next = temp_node
 
     def delete_node(self, x):
-        pass
+        if self.head is None:
+            print('List is Empty')
+            return
+
+            # Deletion of first node
+        node = self.head
+        if node.data == x:
+            self.head = node.next
+            return
+
+            # Delete in between or end the end
+        while node.next is not None:
+            if node.next.data == x:
+                break
+            node = node.next
+        else:
+            print(f"{x} is not in the list")
+            return
+
+        node.next = node.next.next
 
     def delete_first_node(self):
-        pass
+        if self.head is None:
+            print('List is Empty')
+        else:
+            self.head = self.head.next
 
     def delete_last_node(self):
-        pass
+        if self.head is None:
+            print('List is Empty')
+            return
+
+        if self.head.next is None:
+            self.head = None
+            return
+
+        node = self.head
+        while node.next.next is not None:
+            node = node.next
+        node.next = None
 
     def reverse_list(self):
         pass
