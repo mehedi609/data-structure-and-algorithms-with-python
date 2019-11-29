@@ -9,13 +9,39 @@ class SingleLinkedList:
         self.head = None
 
     def display_list(self):
-        pass
+        if self.head is None:
+            print('List is empty')
+        else:
+            node = self.head
+
+            print('The list is: ', end='')
+            while node is not None:
+                print(f"{node.data} ", end='')
+                node = node.next
+            print()
 
     def count_nodes(self):
-        pass
+        counter = 0
+        node = self.head
+
+        while node is not None:
+            counter += 1
+            node = node.next
+
+        print(f'Number of nodes in the list = {counter}')
 
     def search(self, d):
-        pass
+        position = 1
+        node = self.head
+
+        while node is not None:
+            if node.data == d:
+                print(f"{d} is at position {position}")
+                break
+            node = node.next
+            position += 1
+        else:
+            print(f"{d} not found in the list")
 
     def insert_in_beginning(self, d):
         pass
