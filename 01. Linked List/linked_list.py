@@ -171,7 +171,15 @@ class SingleLinkedList:
         node.next = None
 
     def reverse_list(self):
-        pass
+        prev_node = None
+        cur_node = self.head
+
+        while cur_node is not None:
+            next_node = cur_node.next
+            cur_node.next = prev_node
+            prev_node = cur_node
+            cur_node = next_node
+        self.head = prev_node
 
     def bubble_sort_exdata(self):
         pass
